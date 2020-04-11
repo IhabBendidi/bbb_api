@@ -17,7 +17,6 @@ def _create_checksum(query_call):
 
 
 
-
 def _create_query(query_call,parameter_string):
     checksum = _create_checksum(query_call)
     final_query = parameter_string + "&checksum=" + checksum
@@ -51,7 +50,7 @@ def _etree_to_dict(t):
     children = list(t)
     if children:
         dd = defaultdict(list)
-        for dc in map(etree_to_dict, children):
+        for dc in map(_etree_to_dict, children):
             for k, v in dc.items():
                 dd[k].append(v)
         d = {t.tag: {k: v[0] if len(v) == 1 else v
@@ -71,7 +70,6 @@ def _etree_to_dict(t):
 def create_meeting(args):
     call = "create"
     api_url = _get_url(call,args)
-    print(api_url + "\n\n")
     r = requests.get(api_url)
     root = ElementTree.fromstring(r.content)
     response = _etree_to_dict(root)

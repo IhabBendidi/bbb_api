@@ -19,7 +19,7 @@ A dictionary variable containing all necessary values or optional values needed 
 ##### Example :
 
 ```
-import bbb-api as b
+import bbb_api as b
 b.create_meeting({"name":"Test Meeting","meetingID":"abc123","attendeePW":"111222","moderatorPW":"333444"})
 ```
 
