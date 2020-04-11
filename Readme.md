@@ -14,9 +14,21 @@ The BigBlueButton server will automatically remove empty meetings that were crea
 
 ##### Input :
 
-A dictionary
+A dictionary variable containing all necessary values or optional values needed for the api call. A more comprehensive list of those needed variables can be found [here](https://docs.bigbluebutton.org/dev/api.html#create).
+
+##### Example :
 
 ```
 import bbb-api as b
 b.create_meeting({"name":"Test Meeting","meetingID":"abc123","attendeePW":"111222","moderatorPW":"333444"})
+```
+
+
+##### Output :
+
+A dictionary with a response key of SUCCESS or Failure, as well as information about the created meeting. If the meeting is already created, it is still a success, but it does not create a new one.
+
+```
+{'response': {'returncode': 'SUCCESS', 'meetingID': 'abc123', 'internalMeetingID': '6367c48dd193d56ea7b0baad25b19455e529f5ee-1586581110019', 'parentMeetingID': 'bbb-none', 'attendeePW': '111222', 'moderatorPW': '333444', 'createTime': '1586581110019', 'voiceBridge': '15938', 'dialNumber': '613-555-1234', 'createDate': 'Sat Apr 11 04:58:30 UTC 2020', 'hasUserJoined': 'false', 'duration': '0', 'hasBeenForciblyEnded': 'false', 'messageKey': 'duplicateWarning', 'message': 'This conference was already in existence and may currently be in progress.'}}
+
 ```
