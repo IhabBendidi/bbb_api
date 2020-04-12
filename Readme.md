@@ -32,3 +32,30 @@ A dictionary with a response key of SUCCESS or Failure, as well as information a
 {'response': {'returncode': 'SUCCESS', 'meetingID': 'abc123', 'internalMeetingID': '6367c48dd193d56ea7b0baad25b19455e529f5ee-1586581110019', 'parentMeetingID': 'bbb-none', 'attendeePW': '111222', 'moderatorPW': '333444', 'createTime': '1586581110019', 'voiceBridge': '15938', 'dialNumber': '613-555-1234', 'createDate': 'Sat Apr 11 04:58:30 UTC 2020', 'hasUserJoined': 'false', 'duration': '0', 'hasBeenForciblyEnded': 'false', 'messageKey': 'duplicateWarning', 'message': 'This conference was already in existence and may currently be in progress.'}}
 
 ```
+
+
+### Join a meeting :
+
+`join_meeting` function helps to join an existing meeting.
+
+
+##### Input :
+
+A dictionary variable containing all necessary values or optional values needed for the api call. A more comprehensive list of those needed variables can be found [here](https://docs.bigbluebutton.org/dev/api.html#join).
+
+##### Example :
+
+```
+import bbb_api as b
+b.join_meeting({"fullName":"Test Meeting","meetingID":"abc123","password":"333444","clientURL":"ihabURL"})
+```
+
+
+##### Output :
+
+A url that redirects into the room of the meeting.
+
+```
+https://call.bendidi.me/bigbluebutton/api/join?fullName=Test+Meeting&meetingID=abc1234&password=333444&clientURL=ihabURL&checksum=fa78afd0c6e592c931159c7ca310c1aabc2bd85f
+
+```
