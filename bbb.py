@@ -79,11 +79,17 @@ def join_meeting(args):
     call = "join"
     api_url = _get_url(call,args)
     return api_url
-    #r = requests.get(api_url)
-    #print(r.content)
-    #root = ElementTree.fromstring(r.content)
-    #response = _etree_to_dict(root)
-    #return response
+
+
+def is_meeting_running(args):
+    call = "isMeetingRunning"
+    api_url = _get_url(call,args)
+    r = requests.get(api_url)
+    root = ElementTree.fromstring(r.content)
+    response = _etree_to_dict(root)
+    return response
+
 
 #  "createname=Test+Meeting&meetingID=abc123&attendeePW=111222&moderatorPW=333444"
 #create_meeting({"name":"Test Meeting","meetingID":"abc123","attendeePW":"111222","moderatorPW":"333444"})
+#is_meeting_running({"meetingID":"abc1234"})

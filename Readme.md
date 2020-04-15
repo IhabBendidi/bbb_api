@@ -59,3 +59,29 @@ A url that redirects into the room of the meeting.
 https://call.bendidi.me/bigbluebutton/api/join?fullName=Test+Meeting&meetingID=abc1234&password=333444&clientURL=ihabURL&checksum=fa78afd0c6e592c931159c7ca310c1aabc2bd85f
 
 ```
+
+### Check if a meeting is running :
+
+`is_meeting_running` function helps to check whether there is an already running meeting. A meeting is only considered running if it has at least one user already joined.
+
+
+##### Input :
+
+A dictionary variable containing the meeting id.
+
+##### Example :
+
+```
+import bbb_api as b
+b.is_meeting_running({"meetingID":"abc123"})
+```
+
+
+##### Output :
+
+A response telling if the meeting is running or not. A meeting is only considered running if it has at least one user already joined.
+
+```
+{'response': {'returncode': 'SUCCESS', 'running': 'true'}}
+
+```

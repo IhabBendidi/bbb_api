@@ -5,3 +5,6 @@ def create_meeting(args):
 
 def join_meeting(args):
     return b.join_meeting(args)
+
+def is_meeting_running(args):
+    return b.is_meeting_running(args)
