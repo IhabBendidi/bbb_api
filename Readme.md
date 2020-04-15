@@ -85,3 +85,33 @@ A response telling if the meeting is running or not. A meeting is only considere
 {'response': {'returncode': 'SUCCESS', 'running': 'true'}}
 
 ```
+
+
+### End an existing meeting :
+
+`end_meeting` function ends an existing meeting.
+
+
+##### Input :
+
+A dictionary variable containing the meeting id and the password of the moderator.
+
+##### Example :
+
+```
+import bbb_api as b
+b.end_meeting({"meetingID":"abc1234","password":"333444"})
+```
+
+
+##### Output :
+
+A response telling if the meeting has gotten ended or not.
+
+You should note that when you call end meeting, it is simply sending a request to the backend (Red5) server that is handling all the conference traffic. That backend server will immediately attempt to send every connected client a logout event, kicking them from the meeting. It will then disconnect them, and the meeting will be ended. However, this may take several seconds, depending on network conditions. Therefore, the end meeting call will return a success as soon as the request is sent. But to be sure that it completed, you should then check back a few seconds later by using the `get_meeting_info` or `is_meeting_running` calls to verify that all participants have left the meeting and that it successfully ended.
+
+```
+{'response': {'returncode': 'SUCCESS', 'messageKey': 'sentEndMeetingRequest', 'message': 'A request to end the meeting was sent. Please wait a few seconds, and then use the getMeetingInfo or isMeetingRunning API calls to verify that it was ended.'}}
+
+
+```

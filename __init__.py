@@ -8,3 +8,6 @@ def join_meeting(args):
 
 def is_meeting_running(args):
     return b.is_meeting_running(args)
+
+def end_meeting(args):
+    return b.end_meeting(args)
