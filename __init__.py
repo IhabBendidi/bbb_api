@@ -11,3 +11,9 @@ def is_meeting_running(args):
 
 def end_meeting(args):
     return b.end_meeting(args)
+
+def get_meeting_info(args):
+    return b.get_meeting_info(args)
+
+def get_meetings(args):
+    return b.get_meetings(args)
