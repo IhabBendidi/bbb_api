@@ -113,8 +113,34 @@ def get_meetings(args):
     response = _etree_to_dict(root)
     return response
 
+def get_recordings(args):
+    call = "getRecordings"
+    api_url = _get_url(call,args)
+    r = requests.get(api_url)
+    root = ElementTree.fromstring(r.content)
+    response = _etree_to_dict(root)
+    return response
 
-    #  "createname=Test+Meeting&meetingID=abc123&attendeePW=111222&moderatorPW=333444"
-#create_meeting({"name":"Test Meeting","meetingID":"abc123","attendeePW":"111222","moderatorPW":"333444"})
-#is_meeting_running({"meetingID":"abc1234"})
-# end_meeting({"meetingID":"abc1234","password":"333444"})
+def publish_recordings(args):
+    call = "publishRecordings"
+    api_url = _get_url(call,args)
+    r = requests.get(api_url)
+    root = ElementTree.fromstring(r.content)
+    response = _etree_to_dict(root)
+    return response
+
+def delete_recordings(args):
+    call = "deleteRecordings"
+    api_url = _get_url(call,args)
+    r = requests.get(api_url)
+    root = ElementTree.fromstring(r.content)
+    response = _etree_to_dict(root)
+    return response
+
+def update_recordings(args):
+    call = "updateRecordings"
+    api_url = _get_url(call,args)
+    r = requests.get(api_url)
+    root = ElementTree.fromstring(r.content)
+    response = _etree_to_dict(root)
+    return response
