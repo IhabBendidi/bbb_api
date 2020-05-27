@@ -5,8 +5,8 @@ import requests
 from collections import defaultdict
 
 
-_secret = "ILcrZOAJaesnC7hKzY2nfi7HGDx5IPFAH65BSFxEqE"
-_url_path = "https://call.bendidi.me"
+_secret = "tyQFjQsvU32tJtzMw8iWU7dqh5a2djzChi7WEDBGs"
+_url_path = "https://live.bendidi.me"
 
 def _create_checksum(query_call):
     call = query_call + _secret
